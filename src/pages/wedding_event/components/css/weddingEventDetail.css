@@ -1,0 +1,40 @@
+
+ .emoji_hati .emoji_cinta {
+   -webkit-animation: berdetak 1s linear infinite alternate;
+           animation: berdetak 1s linear infinite alternate;
+ }
+
+ .emoji_hati .emoji_cinta:before {
+   -webkit-transform: translate(20px) rotate(-45deg);
+           transform: translate(20px) rotate(-45deg);
+   -webkit-transform-origin: 0 100%;
+           transform-origin: 0 100%;
+ }
+ .emoji_hati .emoji_cinta:after {
+   -webkit-transform: translate(-20px) rotate(45deg);
+           transform: translate(-20px) rotate(45deg);
+   -webkit-transform-origin: 100% 100%;
+           transform-origin: 100% 100%;
+ }
+  
+ @-webkit-keyframes berdetak {
+   25% {
+     -webkit-transform: scale(1.1);
+             transform: scale(1.1);
+   }
+   75% {
+     -webkit-transform: scale(0.6);
+             transform: scale(0.6);
+   }
+ }
+  
+ @keyframes berdetak {
+   25% {
+     -webkit-transform: scale(1.1);
+             transform: scale(1.1);
+   }
+   75% {
+     -webkit-transform: scale(0.6);
+             transform: scale(0.6);
+   }
+ }
