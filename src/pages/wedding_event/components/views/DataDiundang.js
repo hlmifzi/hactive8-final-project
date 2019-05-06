@@ -8,6 +8,7 @@ class DataDiundang extends Component {
    render() {
       let { dataDiundangList } = this.props.weddingEventReducer
       let no = 1;
+
       const isiData = dataDiundangList.map((v) => {
          let color = ""
          // console.log(v.id_status_undangan)
@@ -24,7 +25,6 @@ class DataDiundang extends Component {
          }
          let button = `<button class="btn btn-sm ${color}">${v.nm_status}</button>`;
          let status = <div dangerouslySetInnerHTML={{ __html: button }} />
-
          var rObj = {}
          rObj['no'] = no
          rObj['name'] = v.nm_diundang
@@ -33,6 +33,7 @@ class DataDiundang extends Component {
          no++
          return rObj
       })
+
       const data = {
          columns: [
             {
@@ -62,6 +63,7 @@ class DataDiundang extends Component {
          ],
          rows: isiData
       };
+
       return (
          <MDBCol md="9" sm="12" style={{ overflowX: 'auto' }}>
             <MDBDataTable
@@ -74,12 +76,9 @@ class DataDiundang extends Component {
       )
    }
 }
-
-
 const mapStateToProps = state => ({
    weddingEventReducer: state.weddingEventReducer
 })
-
 const connectRedux = connect(mapStateToProps, null)(DataDiundang)
 
 

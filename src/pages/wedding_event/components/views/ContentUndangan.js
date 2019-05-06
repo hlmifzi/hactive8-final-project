@@ -22,7 +22,6 @@ class ContentUndangan extends Component {
                      <MDBCol md="12" className="pt-50" style={{ marginTop: '50px' }}>
                         {isi_undangan}
                      </MDBCol>
-
                   </MDBRow>
                </MDBCardBody>
             </section>

@@ -23,7 +23,6 @@ class ListKehadiran extends Component {
                   <DiundangJenis />
                   <DataDiundang />
                </MDBRow>
-
             </MDBContainer>
          </section>
       )

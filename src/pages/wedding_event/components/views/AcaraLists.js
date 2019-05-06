@@ -19,7 +19,7 @@ class AcaraLists extends Component {
                   <MDBCardTitle>{title}</MDBCardTitle>
                   <div className="flex-row" style={{ fontSize: '10pt' }}>
                      <i className="fa fa-user"></i> {total} Orang
-                                <span style={{ marginLeft: "1.25rem", color: 'f80' }}>
+                     <span style={{ marginLeft: "1.25rem", color: 'f80' }}>
                         <i className="fa fa-calendar"></i> {tanggal}
                      </span>
                   </div>

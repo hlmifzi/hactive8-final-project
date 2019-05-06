@@ -118,7 +118,7 @@ class KonfirmasiKhadiran extends Component {
                      <MDBCol md="6" style={{ marginTop: '20px', background: '#fff' }}>
                         <MDBBtn color="danger" onClick={this.hideKonfirmasi} style={{ width: '100%' }} >
                            <i className="fa fa-send-o"></i> Sembunyikan
-                         </MDBBtn>
+                        </MDBBtn>
                      </MDBCol>
                   </MDBRow>
                </MDBContainer>

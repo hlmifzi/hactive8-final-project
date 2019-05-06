@@ -6,7 +6,6 @@ import { connect } from 'react-redux'
 class ListKehadiran extends Component {
    render() {
       let { dataDiundangCategory } = this.props.weddingEventReducer
-
       let listDiundangCtegory = dataDiundangCategory.map((v, idx) => {
          return (
             <MDBListGroupItem className="d-flex justify-content-between align-items-center" key={idx}>
@@ -14,7 +13,6 @@ class ListKehadiran extends Component {
             </MDBListGroupItem>
          )
       })
-
       return (
          <MDBCol md="3" sm="12">
             <MDBListGroup>
@@ -24,12 +22,8 @@ class ListKehadiran extends Component {
       )
    }
 }
-
-
 const mapStateToProps = state => ({
    weddingEventReducer: state.weddingEventReducer
 })
-
 const connectRedux = connect(mapStateToProps, null)(ListKehadiran)
-
 export default connectRedux

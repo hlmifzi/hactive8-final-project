@@ -6,16 +6,15 @@ import { connect } from 'react-redux'
 import { getWeddingList } from '../redux/weddingEventAction'
 import Loading from '../../../MyComponents/loading/Loading_page'
 
-
-
 class WeddingEvent extends Component {
-   componentDidMount() {
-      this.props.getWeddingList()
+   async componentDidMount() {
+      console.log(this.props.weddingEventReducer.loading)
+      if (this.props.weddingEventReducer.loading === false) {
+         await this.props.getWeddingList()
+      }
    }
-
    render() {
       let { dataListWedding, loading } = this.props.weddingEventReducer
-
       let listAcara = dataListWedding.map((v, idx) => {
          return (
             <AcaraLists
@@ -29,7 +28,6 @@ class WeddingEvent extends Component {
             />
          )
       })
-
       const WeddingEventDone = () => {
          return (
             <Fragment>
@@ -49,7 +47,7 @@ class WeddingEvent extends Component {
                         </h3>
                         <p className="pb-3">
                            Bingung ngundang tapi ga konfirmasi , sehingga bingung budgeting untuk konsumsi, Takut Malu Jika Konsumsi Kurang ?
-                          </p>
+                        </p>
                         <MDBBtn color="pink" rounded size="md">
                            Buat dan  Kontrol Undanganmu Sekarang
                      </MDBBtn>
@@ -66,19 +64,14 @@ class WeddingEvent extends Component {
             </Fragment>
          )
       }
-
       return (
          loading ? <WeddingEventDone /> : <Loading />
       )
    }
 }
-
 const mapStateToProps = state => ({
    weddingEventReducer: state.weddingEventReducer
 })
-
 const mapDispatchToProps = { getWeddingList }
-
 const connectRedux = connect(mapStateToProps, mapDispatchToProps)(WeddingEvent)
-
 export default connectRedux

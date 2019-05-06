@@ -18,13 +18,12 @@ class ListKehadiranKonfirmasi extends Component {
                <MDBCol md="12" style={{ marginTop: '50px' }}>
                   <h4 className="h1-responsive font-weight-bold my-5">
                      Daftar Undangan
-                        </h4>
+                  </h4>
                </MDBCol>
                <MDBRow start>
                   <DiundangJenis />
                   <DataDiundang />
                </MDBRow>
-
             </MDBContainer>
          </section>
       )

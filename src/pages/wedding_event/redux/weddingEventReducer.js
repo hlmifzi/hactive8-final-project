@@ -40,7 +40,7 @@ const weddingEventReducer = (state = { ...INITIAL_STATE }, action) => {
             ...state,
             dataDiundangList: action.payload,
             loading: true,
-            loading: action.berhasil
+            message: action.berhasil
          })
       default:
          return state;
