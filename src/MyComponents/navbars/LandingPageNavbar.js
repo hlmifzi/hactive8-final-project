@@ -5,13 +5,67 @@ import {
 import logo from '../../assets/images/undangan-online.png'
 
 class LandingPageNavbar extends Component {
-   state = {
-      Beranda: "",
-      Harga: "",
-      Rekanan: "",
-      Acara: ""
-   };
+   constructor() {
+      super()
+      this.state = {
+         Beranda: "",
+         Harga: "",
+         Rekanan: "",
+         Acara: "",
+         isSignedIn: null
+      };
 
+   }
+
+
+   async componentDidMount() {
+      console.log('componentDidMount')
+      await window.gapi.load('client:auth2', () => {
+         window.gapi.client.init({
+            clientId: '138686560480-6r6a11uf3qjhgjisgr3ccdb1l3g6sb6t.apps.googleusercontent.com',
+            scope: 'email'
+         }).then(() => {
+            this.auth = window.gapi.auth2.getAuthInstance()
+            this.setState({ isSignedIn: this.auth.isSignedIn.get() })
+            this.auth.isSignedIn.listen(this.onAuthChange)
+            console.log('then')
+         })
+      })
+   }
+
+   onAuthChange = () => {
+      console.log('onAuthChange')
+
+      this.setState({ isSignedIn: this.auth.isSignedIn.get() })
+   }
+
+   onSignIn = () => {
+      console.log('onSignIn')
+      this.auth.signIn()
+   }
+
+   onSignOut = () => {
+      console.log('onSignOut')
+      this.auth.signOut()
+   }
+
+   renderAuthButton = () => {
+      if (this.state.isSignedIn === null) {
+         return null
+      } else if (this.state.isSignedIn) {
+         return (
+            <MDBNavLink onClick={this.onSignOut} className="waves-effect waves-light" to="#!">
+               <MDBIcon fab icon="google-plus-g" /> Sign Out
+            </MDBNavLink>
+         )
+      } else {
+         return (
+            <MDBNavLink onClick={this.onSignIn} className="waves-effect waves-light" to="#!">
+               <MDBIcon fab icon="google-plus-g" /> Sign In With Gmail
+            </MDBNavLink>
+         )
+      }
+   }
 
    toggleCollapse = collapseID => () =>
       this.setState(prevState => ({
@@ -21,6 +75,7 @@ class LandingPageNavbar extends Component {
 
 
    render() {
+      console.log('render')
       return (
          <MDBNavbar color="pink" dark expand="md">
             <MDBNavbarBrand>
@@ -44,9 +99,7 @@ class LandingPageNavbar extends Component {
                </MDBNavbarNav>
                <MDBNavbarNav right>
                   <MDBNavItem>
-                     <MDBNavLink className="waves-effect waves-light" to="#!">
-                        <MDBIcon fab icon="google-plus-g" /> Login With Gmail
-                     </MDBNavLink>
+                     {this.renderAuthButton()}
                   </MDBNavItem>
                </MDBNavbarNav>
             </MDBCollapse>
