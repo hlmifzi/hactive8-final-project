@@ -15,6 +15,72 @@ class WeddingEvent extends Component {
    }
    render() {
       let { dataListWedding, loading } = this.props.weddingEventReducer
+      dataListWedding = [
+         {
+            kd_undangan : "as",
+            img_undangan : "as",
+            nm_undangan : "Helmi Dan Jannah",
+            jumlah_undangan : 1000 ,
+            tgl_acara_akad : "22/02/2012",
+            sisa_hari : "365"
+         },
+         {
+            kd_undangan : "as",
+            img_undangan : "as",
+            nm_undangan : "Helmi Dan Jannah",
+            jumlah_undangan : 1000 ,
+            tgl_acara_akad : "22/02/2012",
+            sisa_hari : "365"
+         },
+         {
+            kd_undangan : "as",
+            img_undangan : "as",
+            nm_undangan : "Helmi Dan Jannah",
+            jumlah_undangan : 1000 ,
+            tgl_acara_akad : "22/02/2012",
+            sisa_hari : "365"
+         },
+         {
+            kd_undangan : "as",
+            img_undangan : "as",
+            nm_undangan : "Helmi Dan Jannah",
+            jumlah_undangan : 1000 ,
+            tgl_acara_akad : "22/02/2012",
+            sisa_hari : "365"
+         },
+         {
+            kd_undangan : "as",
+            img_undangan : "as",
+            nm_undangan : "Helmi Dan Jannah",
+            jumlah_undangan : 1000 ,
+            tgl_acara_akad : "22/02/2012",
+            sisa_hari : "365"
+         },
+         {
+            kd_undangan : "as",
+            img_undangan : "as",
+            nm_undangan : "Helmi Dan Jannah",
+            jumlah_undangan : 1000 ,
+            tgl_acara_akad : "22/02/2012",
+            sisa_hari : "365"
+         },
+         {
+            kd_undangan : "as",
+            img_undangan : "as",
+            nm_undangan : "Helmi Dan Jannah",
+            jumlah_undangan : 1000 ,
+            tgl_acara_akad : "22/02/2012",
+            sisa_hari : "365"
+         },
+         {
+            kd_undangan : "as",
+            img_undangan : "as",
+            nm_undangan : "Helmi Dan Jannah",
+            jumlah_undangan : 1000 ,
+            tgl_acara_akad : "22/02/2012",
+            sisa_hari : "365"
+         },
+      ]
       let listAcara = dataListWedding.map((v, idx) => {
          return (
             <AcaraLists
@@ -65,7 +131,7 @@ class WeddingEvent extends Component {
          )
       }
       return (
-         loading ? <WeddingEventDone /> : <Loading />
+         !loading ? <WeddingEventDone /> : <Loading />
       )
    }
 }
